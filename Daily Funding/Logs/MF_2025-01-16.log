@@ -1,0 +1,36 @@
+2025-01-16 00:15:35 - INFO - Processing Start
+2025-01-16 00:15:38 - INFO - Running SQL Query
+2025-01-16 00:57:37 - INFO - SQL Query Finished
+2025-01-16 08:51:57 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-16 08:51:58 - INFO - Authentication (password) successful!
+2025-01-16 08:51:58 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-16 08:52:15 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250114.csv
+2025-01-16 08:52:15 - INFO - [chan 0] sftp session closed.
+2025-01-16 08:52:15 - INFO - Processing Finished
+2025-01-16 10:02:38 - INFO - Processing Start
+2025-01-16 10:02:40 - INFO - Running SQL Query
+2025-01-16 10:24:37 - INFO - SQL Query Finished
+2025-01-16 10:25:07 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-16 10:25:08 - INFO - Authentication (password) successful!
+2025-01-16 10:25:09 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-16 10:25:27 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250114.csv
+2025-01-16 10:25:27 - INFO - [chan 0] sftp session closed.
+2025-01-16 10:25:27 - INFO - Processing Finished
+2025-01-16 11:44:07 - INFO - Processing Start
+2025-01-16 11:44:08 - INFO - Running SQL Query
+2025-01-16 12:04:50 - INFO - SQL Query Finished
+2025-01-16 12:05:15 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-16 12:05:16 - INFO - Authentication (password) successful!
+2025-01-16 12:05:16 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-16 12:05:28 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250114.csv
+2025-01-16 12:05:28 - INFO - [chan 0] sftp session closed.
+2025-01-16 12:05:29 - INFO - Processing Finished
+2025-01-16 14:00:09 - INFO - Processing Start
+2025-01-16 14:00:09 - INFO - Running SQL Query
+2025-01-16 14:23:08 - INFO - SQL Query Finished
+2025-01-16 14:23:28 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-16 14:23:28 - INFO - Authentication (password) successful!
+2025-01-16 14:23:29 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-16 14:23:39 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250115.csv
+2025-01-16 14:23:39 - INFO - [chan 0] sftp session closed.
+2025-01-16 14:23:39 - INFO - Processing Finished

@@ -1,0 +1,33 @@
+2025-01-10 14:40:44 - INFO - Processing Start
+2025-01-10 14:40:53 - INFO - Running SQL Query
+2025-01-10 14:41:29 - INFO - SQL Query Finished
+2025-01-10 15:01:04 - INFO - Processing Start
+2025-01-10 15:01:05 - INFO - Running SQL Query
+2025-01-10 15:04:25 - INFO - SQL Query Finished
+2025-01-10 15:08:53 - INFO - Processing Start
+2025-01-10 15:08:53 - INFO - Running SQL Query
+2025-01-10 15:11:37 - INFO - SQL Query Finished
+2025-01-10 15:13:40 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-10 15:13:41 - INFO - Authentication (password) successful!
+2025-01-10 15:13:41 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-10 15:13:56 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250109.csv
+2025-01-10 15:13:56 - INFO - [chan 0] sftp session closed.
+2025-01-10 15:13:57 - INFO - Processing Finished
+2025-01-10 15:18:49 - INFO - Processing Start
+2025-01-10 15:18:50 - INFO - Running SQL Query
+2025-01-10 15:21:08 - INFO - SQL Query Finished
+2025-01-10 15:21:25 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-10 15:21:26 - INFO - Authentication (password) successful!
+2025-01-10 15:21:26 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-10 15:21:35 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250109.csv
+2025-01-10 15:21:35 - INFO - [chan 0] sftp session closed.
+2025-01-10 15:21:36 - INFO - Processing Finished
+2025-01-10 15:26:37 - INFO - Processing Start
+2025-01-10 15:26:37 - INFO - Running SQL Query
+2025-01-10 15:27:24 - INFO - SQL Query Finished
+2025-01-10 15:28:00 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-10 15:28:01 - INFO - Authentication (password) successful!
+2025-01-10 15:28:02 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-10 15:28:34 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250109.csv
+2025-01-10 15:28:34 - INFO - [chan 0] sftp session closed.
+2025-01-10 15:28:34 - INFO - Processing Finished

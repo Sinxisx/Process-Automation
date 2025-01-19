@@ -1,0 +1,28 @@
+2025-01-08 10:46:23 - INFO - Processing Start
+2025-01-08 10:46:24 - INFO - Running SQL Query
+2025-01-08 10:48:10 - INFO - SQL Query Finished
+2025-01-08 10:56:39 - INFO - Processing Start
+2025-01-08 10:56:39 - INFO - Running SQL Query
+2025-01-08 10:57:07 - INFO - SQL Query Finished
+2025-01-08 10:58:51 - INFO - Processing Start
+2025-01-08 10:58:55 - INFO - Running SQL Query
+2025-01-08 10:59:25 - INFO - SQL Query Finished
+2025-01-08 11:00:50 - INFO - Processing Start
+2025-01-08 11:00:51 - INFO - Running SQL Query
+2025-01-08 11:01:21 - INFO - SQL Query Finished
+2025-01-08 11:01:55 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-08 11:01:55 - INFO - Authentication (password) successful!
+2025-01-08 11:01:56 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-08 11:02:06 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250106.csv
+2025-01-08 11:02:06 - INFO - [chan 0] sftp session closed.
+2025-01-08 11:02:06 - INFO - Processing Finished
+2025-01-08 13:25:01 - INFO - Processing Start
+2025-01-08 20:00:10 - INFO - Processing Start
+2025-01-08 20:00:10 - INFO - Running SQL Query
+2025-01-08 20:02:41 - INFO - SQL Query Finished
+2025-01-08 20:02:49 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-08 20:02:49 - INFO - Authentication (password) successful!
+2025-01-08 20:02:50 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-08 20:02:58 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250107.csv
+2025-01-08 20:02:58 - INFO - [chan 0] sftp session closed.
+2025-01-08 20:02:58 - INFO - Processing Finished

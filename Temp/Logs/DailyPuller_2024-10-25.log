@@ -1,0 +1,14 @@
+2024-10-25 10:00:17 - INFO - Connected (version 2.0, client 6.6.2.451)
+2024-10-25 10:00:19 - INFO - Authentication (password) successful!
+2024-10-25 10:00:20 - INFO - [chan 0] Opened sftp connection (server version 3)
+2024-10-25 10:54:58 - WARNING - SFTP login failed!
+2024-10-25 16:44:27 - INFO - Connected (version 2.0, client 6.6.2.451)
+2024-10-25 16:44:36 - INFO - Authentication (password) failed.
+2024-10-25 16:44:36 - WARNING - SFTP login failed!
+2024-10-25 16:48:37 - INFO - Master funding done.
+2024-10-25 16:54:27 - INFO - Disconnect (code 11): Login grace-time exceeded
+2024-10-31 13:28:28 - INFO - Connected (version 2.0, client 6.6.2.451)
+2024-10-31 13:28:29 - INFO - Authentication (password) successful!
+2024-10-31 13:28:29 - INFO - [chan 0] Opened sftp connection (server version 3)
+2024-10-31 14:26:10 - INFO - [chan 0] sftp session closed.
+2024-10-31 14:26:10 - INFO - Facility done.

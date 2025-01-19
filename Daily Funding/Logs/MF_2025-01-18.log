@@ -1,0 +1,9 @@
+2025-01-18 14:00:13 - INFO - Processing Start
+2025-01-18 14:00:13 - INFO - Running SQL Query
+2025-01-18 14:20:45 - INFO - SQL Query Finished
+2025-01-18 14:21:03 - INFO - Connected (version 2.0, client 6.6.2.451)
+2025-01-18 14:21:04 - INFO - Authentication (password) successful!
+2025-01-18 14:21:04 - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-18 14:21:14 - INFO - File uploaded successfully to /PDA/PNR Automation/Daily Funding/MF_20250116.csv
+2025-01-18 14:21:14 - INFO - [chan 0] sftp session closed.
+2025-01-18 14:21:14 - INFO - Processing Finished
