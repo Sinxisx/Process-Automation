@@ -1,4 +1,5 @@
 -- This script is used to create external table for daily data upload
+-- Remove the baseline joining for management version
 CREATE OR REPLACE EXTERNAL TABLE `maybank-analytics-production.FUNDING_BANKWIDE.DAILY_FUNDING_EXTERNAL`
 (
     BASE_DT FLOAT64,

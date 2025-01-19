@@ -1,0 +1,63 @@
+-- Scheduled query to update MASTER_FUNDING_NR table using DAILY_FUNDING_EXTERNAL 
+-- made by External Table Maker script
+SELECT
+  CAST(CAST(BASE_DT AS INT64) AS STRING) BASE_DT,
+  BASE_DT_PARSED,
+  BASE_YM,
+  AGREE_ID,
+  FLAG,
+  ACCT_NO,
+  REGION,
+  AREA,
+  BRANCH,
+  GCIF_NO,
+  CIF_NO,
+  CUST_TYPE,
+  PROD_NM,
+  SUB_PROD_NM,
+  SEGMENT,
+  GCIF_NAME,
+  PROD_TYPE,
+  CURR_CODE,
+  CAST(CAST(COLT AS INT64) AS STRING) COLT,
+  RATE_DPK,
+  BASE_AMT_FIX,
+  MTD_AVG_AMT_FIX,
+  DTD,
+  MTD,
+  YTD,
+  DIVISION,
+  `SOURCE`,
+  SEGMENT_FIX,
+  BASE_AMT_ACCUM_MTD,
+  INT_EXP_ACCUM_MTD,
+  COF_MTD,
+  HIGH_COF_FLAG,
+  CAST(CAST(LOB_SORT AS INT64) AS STRING) LOB_SORT,
+  CASA_TD,
+  DTD_10B,
+  MTD_10B,
+  CAST(BLOCK AS STRING) BLOCK
+FROM
+  `maybank-analytics-production.FUNDING_BANKWIDE.DAILY_FUNDING_EXTERNAL`
+WHERE
+  (`SOURCE` IN ('TBL_BAL',
+      'TBL_BAL_SUMMARY')
+    AND CAST(BASE_DT AS STRING) > (
+    SELECT
+      MAX(BASE_DT)
+    FROM
+      `maybank-analytics-production.FUNDING_BANKWIDE.MASTER_FUNDING_NR`
+    WHERE
+      `SOURCE` IN ('TBL_BAL',
+        'TBL_BAL_SUMMARY')))
+  OR (`SOURCE` IN ('RMR',
+      'TARGET')
+    AND CAST(BASE_DT AS STRING) > (
+    SELECT
+      MAX(BASE_DT)
+    FROM
+      `maybank-analytics-production.FUNDING_BANKWIDE.MASTER_FUNDING_NR`
+    WHERE
+      `SOURCE` IN ('RMR',
+        'TARGET'))); -- Ensure this filters to the appropriate date for eac SOURCE type

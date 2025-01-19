@@ -1,0 +1,175 @@
+-- Leakage flag viewtable for Looker Studio
+-- Remove the baseline joining for management version
+WITH
+  MONTHLY AS (
+  SELECT
+    GCIF AS GCIF_NO,
+    MTD_DCNT_M12,
+    MAX_BAL,
+    FINAL_FLAG,
+    CASE
+      WHEN WINBACK = TRUE THEN 'YES'
+    ELSE
+    'NO'
+  END
+    AS WB_FLAG
+  FROM
+    `maybank-analytics-production.FUNDING_BANKWIDE.LeakageFlag`),
+  DAILY AS (
+  SELECT
+    DISTINCT GCIF_NO,
+    REGION,
+    AREA,
+    BRANCH,
+    DIVISION,
+    SEGMENT_FIX,
+    LOB_SORT,
+    CASE
+      WHEN SEGMENT_FIX = 'GB-CORP'THEN 'GB-CORPORATE BANKING'
+    ELSE
+    'CFS NON-RETAIL'
+  END
+    AS DIRECTORATE,
+    CASE
+      WHEN COLT = '1' THEN 'YES'
+    ELSE
+    'NO'
+  END
+    AS BtB,
+    CASE
+      WHEN MtD < -10000000000 THEN "YES"
+    ELSE
+    "NO"
+  END
+    AS MtD10B,
+    CASE
+      WHEN DtD < -10000000000 THEN "YES"
+    ELSE
+    "NO"
+  END
+    AS DtD10B
+  FROM
+    `maybank-analytics-production.FUNDING_BANKWIDE.MASTER_FUNDING_NR`
+  WHERE
+    BASE_DT = (
+    SELECT
+      MAX(BASE_DT)
+    FROM
+      `maybank-analytics-production.FUNDING_BANKWIDE.MASTER_FUNDING_NR`) ),
+  UPLINE AS (
+  SELECT
+    GCIF_NO,
+    SALES_NAME,
+    LINE_MANAGER_1,
+    LINE_MANAGER_2,
+    LINE_MANAGER_3,
+    LINE_MANAGER_4
+  FROM
+    `maybank-analytics-production.FUNDING_BANKWIDE.UPLINE_FUNDING`),
+  BASELINE AS (
+  SELECT
+    GCIF_NO,
+    EMAIL_KARYAWAN
+  FROM
+    `maybank-analytics-production.FUNDING_BANKWIDE.BASELINE_FUNDING` ),
+  FDLD AS (
+  SELECT
+    DISTINCT GCIF_NO,
+    'LENDING' AS FL_TEMP
+  FROM
+    `maybank-analytics-production.CPR.Master_Lending_Partitioned`
+  WHERE
+    BASE_DT = (
+    SELECT
+      MAX(BASE_DT)
+    FROM
+      `maybank-analytics-production.CPR.Master_Lending_Partitioned`)),
+  CASA_AGG AS (
+  SELECT
+    GCIF_NO,
+    SUM(BASE_AMT_FIX) AS CASA_AMT
+  FROM
+    `maybank-analytics-production.FUNDING_BANKWIDE.MASTER_FUNDING_NR`
+  WHERE
+    PROD_TYPE IN ('CA',
+      'SA')
+    AND SOURCE = 'TBL_BAL'
+    AND BASE_DT = (
+    SELECT
+      MAX(BASE_DT)
+    FROM
+      `maybank-analytics-production.FUNDING_BANKWIDE.MASTER_FUNDING_NR`
+    WHERE
+      SOURCE = 'TBL_BAL')
+  GROUP BY
+    GCIF_NO
+  ORDER BY
+    GCIF_NO),
+  CASA_BKT AS(
+  SELECT
+    *,
+    CASE
+      WHEN CASA_AMT < 1000000 THEN '<1 mio'
+      WHEN CASA_AMT >= 1000000
+    AND CASA_AMT <= 25000000 THEN '≥1 mio - ≤25 mio'
+      WHEN CASA_AMT > 25000000 AND CASA_AMT <= 100000000 THEN '>25 mio - ≤100 mio'
+      WHEN CASA_AMT > 100000000
+    AND CASA_AMT <= 500000000 THEN '>100 mio - ≤500 mio'
+      WHEN CASA_AMT > 500000000 AND CASA_AMT <= 5000000000 THEN '>500 mio - ≤5 bio'
+      WHEN CASA_AMT > 5000000000
+    AND CASA_AMT <= 25000000000 THEN '>5 bio - ≤25 bio'
+      WHEN CASA_AMT > 25000000000 AND CASA_AMT <= 100000000000 THEN '>25 bio - ≤100 bio'
+      WHEN CASA_AMT > 100000000000 THEN '>100 bio'
+  END
+    AS CASA_BUCKET,
+    CASE
+      WHEN CASA_AMT < 1000000 THEN 1
+      WHEN CASA_AMT >= 1000000
+    AND CASA_AMT <= 25000000 THEN 2
+      WHEN CASA_AMT > 25000000 AND CASA_AMT <= 100000000 THEN 3
+      WHEN CASA_AMT > 100000000
+    AND CASA_AMT <= 500000000 THEN 4
+      WHEN CASA_AMT > 500000000 AND CASA_AMT <= 5000000000 THEN 5
+      WHEN CASA_AMT > 5000000000
+    AND CASA_AMT <= 25000000000 THEN 6
+      WHEN CASA_AMT > 25000000000 AND CASA_AMT <= 100000000000 THEN 7
+      WHEN CASA_AMT > 100000000000 THEN 8
+  END
+    AS CASA_NUM
+  FROM
+    CASA_AGG),
+  FINAL AS(
+  SELECT
+    *
+  FROM
+    MONTHLY
+  LEFT JOIN
+    BASELINE
+  USING
+    (GCIF_NO)
+  LEFT JOIN
+    DAILY
+  USING
+    (GCIF_NO)
+  LEFT JOIN
+    UPLINE
+  USING
+    (GCIF_NO)
+  LEFT JOIN
+    FDLD
+  USING
+    (GCIF_NO)
+  LEFT JOIN
+    CASA_BKT
+  USING
+    (GCIF_NO))
+SELECT
+  * EXCEPT (FL_TEMP),
+  CASE
+    WHEN FL_TEMP = 'LENDING' THEN 'LENDING'
+  ELSE
+  'FUNDING'
+END
+  AS FL_FIN
+FROM
+  FINAL
